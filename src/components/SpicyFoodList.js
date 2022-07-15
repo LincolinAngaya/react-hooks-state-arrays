@@ -9,15 +9,24 @@ function SpicyFoodList() {
     console.log(newFood);
   }
 
+
+
+  
   const foodList = foods.map((food) => (
     <li key={food.id}>
       {food.name} | Heat: {food.heatLevel} | Cuisine: {food.cuisine}
     </li>
   ));
+  function handleClick(id){
+    const newFoodArray = foods.filter((food) => food.id !== food.id);
+    setFoods(newFoodArray);
+  }
 
   return (
     <div>
       <button onClick={handleAddFood}>Add New Food</button>
+      <ul>{foodList}</ul>
+      <button onClick={handleClick}>remove New Food</button>
       <ul>{foodList}</ul>
     </div>
   );
